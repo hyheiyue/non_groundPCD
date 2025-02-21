@@ -1,0 +1,9 @@
+{   
+    "input_path" :"/home/hy/rostools/output.pcd",
+    "z_min": -1.0,
+    "z_max": 0.5,
+    "max_slope_deg": 20,
+    "max_attempts": 5,
+    "distance_threshold": 0.05,
+    "use_projection": true 
+}
