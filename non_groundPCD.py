@@ -1,6 +1,23 @@
 import open3d as o3d
 import numpy as np
-import json  
+import json
+from scipy.spatial.transform import Rotation as R  # 用于处理旋转
+
+def rotate_pcd(pcd, roll, pitch, yaw):
+    """
+    根据RPY角度旋转点云
+    :param pcd: 输入点云（Open3D点云）
+    :param roll: 绕X轴旋转角度（弧度）
+    :param pitch: 绕Y轴旋转角度（弧度）
+    :param yaw: 绕Z轴旋转角度（弧度）
+    :return: 旋转后的点云
+    """
+    # 创建旋转矩阵
+    rotation_matrix = R.from_euler('xyz', [roll, pitch, yaw], degrees=False).as_matrix()
+    
+    # 对点云进行旋转
+    pcd.rotate(rotation_matrix, center=(0, 0, 0))
+    return pcd
 
 def extract_ground_with_z_range(pcd, params):
     """
@@ -132,13 +149,19 @@ def project_to_ground_plane(non_ground_cloud, ground_cloud):
 
 
 
-# 使用示例 --------------------------------------------------
 with open('params.json', 'r') as f:
     params = json.load(f)
 
-# 从参数文件中获取输入路径
+
 input_path = params['input_path']
 pcd = o3d.io.read_point_cloud(input_path)
+
+
+if 'roll' in params and 'pitch' in params and 'yaw' in params:
+    roll = params['roll']
+    pitch = params['pitch']
+    yaw = params['yaw']
+    pcd = rotate_pcd(pcd, roll, pitch, yaw)
 
 # 执行地面分割
 ground_cloud, non_ground_cloud = extract_ground_with_z_range(pcd, params)
