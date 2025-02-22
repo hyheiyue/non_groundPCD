@@ -8,6 +8,6 @@ non_ground:
     z_max: 0.5
     max_slope_deg: 15.0
     max_attempts: 5
-    distance_threshold: 0.1
+    distance_threshold: 0.05
     use_projection: true
     frame_id: "map"
