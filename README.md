@@ -24,7 +24,7 @@ pip install open3d>=0.10.0 numpy>=1.19.0
 ```
 {   
     "input_path" :"/home/hy/rostools/output.pcd", #输入点云路径
-    "roll": 3.1415926,  # 对输入pcd的rpy旋转，处理后的PCD应为正向
+    "roll": 0.0,  # 对输入pcd的rpy旋转，处理后的PCD应为正向(建议先处理为正向，在这里处理输出效果不太好）
     "pitch": 0.0, 
     "yaw": 0.0 ,   
     "z_min": -1.0, #地面点云z坐标最小值(预处理后)
@@ -36,7 +36,7 @@ pip install open3d>=0.10.0 numpy>=1.19.0
      
 }
 ```
-## cpp版本(比py快一点，依赖Open3D、Eigen3环境管理可能比较麻烦）
+## cpp版本(目前效果不太号，但是比py快一点，依赖Open3D、Eigen3环境管理可能比较麻烦）
 * 使用rviz进行可视化
 ```
 ros2 launch non_groundPCD non_ground.launch.py
