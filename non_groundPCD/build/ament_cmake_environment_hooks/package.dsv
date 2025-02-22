@@ -1,0 +1,4 @@
+source;share/non_groundPCD/local_setup.bash
+source;share/non_groundPCD/local_setup.dsv
+source;share/non_groundPCD/local_setup.sh
+source;share/non_groundPCD/local_setup.zsh
