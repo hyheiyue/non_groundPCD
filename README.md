@@ -36,7 +36,7 @@ pip install open3d>=0.10.0 numpy>=1.19.0
      
 }
 ```
-## cpp版本(目前效果不太好，但是比py快一点，依赖Open3D、Eigen3环境管理可能比较麻烦）
+## cpp版本(比py快一点，依赖Open3D、Eigen3环境管理可能比较麻烦）
 * 使用rviz进行可视化
 ```
 ros2 launch non_groundPCD non_ground.launch.py
