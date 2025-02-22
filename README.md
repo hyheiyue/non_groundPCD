@@ -24,7 +24,7 @@ pip install open3d>=0.10.0 numpy>=1.19.0
 ```
 {   
     "input_path" :"/home/hy/rostools/output.pcd", #输入点云路径
-    "roll": 0.0,  # 对输入pcd的rpy旋转，处理后的PCD应为正向(建议先处理为正向，在这里处理输出效果不太好）
+    "roll": 0.0,  # 对输入pcd的rpy旋转，处理后的PCD应为正向(建议先处理为正向，在这里处理后输出效果不太好-感觉）
     "pitch": 0.0, 
     "yaw": 0.0 ,   
     "z_min": -1.0, #地面点云z坐标最小值(预处理后)
